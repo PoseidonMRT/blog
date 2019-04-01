@@ -103,17 +103,18 @@
 <meta property="og:site_name" content="养生佛系程序员">
 <meta property="og:description" content="View是什么要学习自定义View，我们首先应该清楚的认识到View是个什么东西。那么View究竟是什么呢？   从代码层面看，View是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图 从用户角度看，View是用户界面的组成元素，View参与用户交互  那么View究竟长什么样呢？见图-View界面边界  从上图">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View界面边界.png">
-<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View界面边界.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View子孙关系.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View子孙关系.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View界面边界.png">
 <meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View界面边界.png">
 <meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View坐标系.png">
 <meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View函数值说明.png">
 <meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View_onTouch.png">
-<meta property="og:updated_time" content="2019-04-01T07:05:16.955Z">
+<meta property="og:updated_time" content="2019-04-01T07:33:59.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View简介">
 <meta name="twitter:description" content="View是什么要学习自定义View，我们首先应该清楚的认识到View是个什么东西。那么View究竟是什么呢？   从代码层面看，View是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图 从用户角度看，View是用户界面的组成元素，View参与用户交互  那么View究竟长什么样呢？见图-View界面边界  从上图">
-<meta name="twitter:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View界面边界.png">
+<meta name="twitter:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View子孙关系.png">
 
 
 
@@ -390,7 +391,7 @@
                 
               
 
-              <time title="创建时间：2019-04-01 14:51:52 / 修改时间：15:05:16" itemprop="dateCreated datePublished" datetime="2019-04-01T14:51:52+08:00">2019-04-01</time>
+              <time title="创建时间：2019-04-01 14:51:52 / 修改时间：15:33:59" itemprop="dateCreated datePublished" datetime="2019-04-01T14:51:52+08:00">2019-04-01</time>
             
 
             
@@ -430,13 +431,13 @@
 
       
         <h2 id="View是什么"><a href="#View是什么" class="headerlink" title="View是什么"></a>View是什么</h2><p>要学习自定义<code>View</code>，我们首先应该清楚的认识到<code>View</code>是个什么东西。那么View究竟是什么呢？</p>
-<p><img src="/2019/04/01/View简介/View界面边界.png" alt></p>
+<p><img src="/2019/04/01/View简介/View子孙关系.png" alt><br><img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View子孙关系.png"></p>
 <ul>
 <li>从代码层面看，<code>View</code>是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图</li>
 <li>从用户角度看，<code>View</code>是用户界面的组成元素，<code>View</code>参与用户交互</li>
 </ul>
 <p>那么<code>View</code>究竟长什么样呢？见图-View界面边界</p>
-<p><img src="/2019/04/01/View简介/./View界面边界.png" alt="Alt text"></p>
+<img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View界面边界.png">
 <p>从上图可以看出(开发者选项-&gt;打开布局边界)，界面上框出了很多<strong>大小不一的矩形框，我们可以把这里的每一个框都看作一个<code>View</code>或一个<code>View</code>子孙类</strong>，在Android Studio中打开布局管理器，也能看到类似于这种效果，如图-Android Studio View界面边界。</p>
 <img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View界面边界.png" class="Android Studio">
 <p>通过上面描述，我们可以清晰的认识到，<code>View</code>对应着界面上的一块矩形区域，在这块矩形区域内可以进行用户交互，那么这个矩形区域内部各种各样的颜色，Icon又是怎么显示出来的呢？</p>
