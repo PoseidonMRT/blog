@@ -96,16 +96,24 @@
 
 
 
-  <meta name="description" content="佛系撸码进行时">
-<meta property="og:type" content="website">
-<meta property="og:title" content="养生佛系程序员">
-<meta property="og:url" content="https://tuozhaobing.github.io/index.html">
+  <meta name="description" content="View是什么要学习自定义View，我们首先应该清楚的认识到View是个什么东西。那么View究竟是什么呢？   从代码层面看，View是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图 从用户角度看，View是用户界面的组成元素，View参与用户交互  那么View究竟长什么样呢？见图-View界面边界  从上图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="View简介">
+<meta property="og:url" content="https://tuozhaobing.github.io/2019/04/01/View简介/index.html">
 <meta property="og:site_name" content="养生佛系程序员">
-<meta property="og:description" content="佛系撸码进行时">
+<meta property="og:description" content="View是什么要学习自定义View，我们首先应该清楚的认识到View是个什么东西。那么View究竟是什么呢？   从代码层面看，View是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图 从用户角度看，View是用户界面的组成元素，View参与用户交互  那么View究竟长什么样呢？见图-View界面边界  从上图">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View界面边界.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View界面边界.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View界面边界.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View坐标系.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View函数值说明.png">
+<meta property="og:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/blog/2019/04/01/View简介/View_onTouch.png">
+<meta property="og:updated_time" content="2019-04-01T07:05:16.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="养生佛系程序员">
-<meta name="twitter:description" content="佛系撸码进行时">
+<meta name="twitter:title" content="View简介">
+<meta name="twitter:description" content="View是什么要学习自定义View，我们首先应该清楚的认识到View是个什么东西。那么View究竟是什么呢？   从代码层面看，View是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图 从用户角度看，View是用户界面的组成元素，View参与用户交互  那么View究竟长什么样呢？见图-View界面边界  从上图">
+<meta name="twitter:image" content="https://tuozhaobing.github.io/2019/04/01/View简介/View界面边界.png">
 
 
 
@@ -113,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="https://tuozhaobing.github.io/">
+  <link rel="canonical" href="https://tuozhaobing.github.io/2019/04/01/View简介/">
 
 
 
@@ -123,7 +131,7 @@
   };
 </script>
 
-  <title>养生佛系程序员</title>
+  <title>View简介 | 养生佛系程序员</title>
   
 
 
@@ -171,8 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -323,9 +330,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -357,10 +364,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/04/01/View简介/" class="post-title-link" itemprop="url">View简介</a>
+          <h1 class="post-title" itemprop="name headline">View简介
+
               
             
           </h1>
@@ -424,9 +429,7 @@
       
 
       
-        
-          
-            <h2 id="View是什么"><a href="#View是什么" class="headerlink" title="View是什么"></a>View是什么</h2><p>要学习自定义<code>View</code>，我们首先应该清楚的认识到<code>View</code>是个什么东西。那么View究竟是什么呢？</p>
+        <h2 id="View是什么"><a href="#View是什么" class="headerlink" title="View是什么"></a>View是什么</h2><p>要学习自定义<code>View</code>，我们首先应该清楚的认识到<code>View</code>是个什么东西。那么View究竟是什么呢？</p>
 <p><img src="/2019/04/01/View简介/View界面边界.png" alt></p>
 <ul>
 <li>从代码层面看，<code>View</code>是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图</li>
@@ -462,8 +465,6 @@
 <p>那么这两种处理方式有什么区别呢？从下面源码中我们可以看出<code>onTouchListener</code>的优先与<code>onTouchEvent</code>，所以在重写<code>onTouchEvent</code>无效的情况下，除了check 父控件是否向下分发事件以外，还需要check该控件是否有<code>onTouchListener</code>的监听。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/** Android P 源码代码片段 **/</span><br><span class="line">public boolean dispatchTouchEvent(MotionEvent event) &#123;</span><br><span class="line">        ....</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (actionMasked == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">            // Defensive cleanup <span class="keyword">for</span> new gesture</span><br><span class="line">            stopNestedScroll();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (onFilterTouchEventForSecurity(event)) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp; handleScrollBarDragging(event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            //优先响应onTouchListener</span><br><span class="line">            ListenerInfo li = mListenerInfo;</span><br><span class="line">            <span class="keyword">if</span> (li != null &amp;&amp; li.mOnTouchListener != null</span><br><span class="line">                    &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED</span><br><span class="line">                    &amp;&amp; li.mOnTouchListener.onTouch(this, event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            //onTouchListener为空或者返回<span class="literal">false</span>时，响应onTouchEvent</span><br><span class="line">            <span class="keyword">if</span> (!result &amp;&amp; onTouchEvent(event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!result &amp;&amp; mInputEventConsistencyVerifier != null) &#123;</span><br><span class="line">            mInputEventConsistencyVerifier.onUnhandledEvent(event, 0);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Clean up after nested scrolls <span class="keyword">if</span> this is the end of a gesture;</span><br><span class="line">        // also cancel it <span class="keyword">if</span> we tried an ACTION_DOWN but we didn<span class="string">'t want the rest</span></span><br><span class="line"><span class="string">        // of the gesture.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        if (actionMasked == MotionEvent.ACTION_UP ||</span></span><br><span class="line"><span class="string">                actionMasked == MotionEvent.ACTION_CANCEL ||</span></span><br><span class="line"><span class="string">                (actionMasked == MotionEvent.ACTION_DOWN &amp;&amp; !result)) &#123;</span></span><br><span class="line"><span class="string">            stopNestedScroll();</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        return result;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
 
@@ -486,159 +487,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tuozhaobing.github.io/blog/2019/03/29/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhaobing Tuo">
-      <meta itemprop="description" content="佛系撸码进行时">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养生佛系程序员">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/03/29/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/blog/2019/03/29/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-29 15:33:39" itemprop="dateCreated datePublished" datetime="2019-03-29T15:33:39+08:00">2019-03-29</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -648,14 +518,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -675,8 +546,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -737,6 +617,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#View是什么"><span class="nav-number">1.</span> <span class="nav-text">View是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View生命周期"><span class="nav-number">2.</span> <span class="nav-text">View生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View坐标系"><span class="nav-number">3.</span> <span class="nav-text">View坐标系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View事件处理"><span class="nav-number">4.</span> <span class="nav-text">View事件处理</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -866,6 +763,10 @@
 
 
   
+  <script src="/blog/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/blog/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -881,6 +782,8 @@
 
   
 
+
+  
 
 
   
