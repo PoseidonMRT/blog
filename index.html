@@ -385,12 +385,24 @@
                 
               
 
-              <time title="创建时间：2019-04-01 14:51:52 / 修改时间：15:33:59" itemprop="dateCreated datePublished" datetime="2019-04-01T14:51:52+08:00">2019-04-01</time>
+              <time title="创建时间：2019-04-01 14:51:52" itemprop="dateCreated datePublished" datetime="2019-04-01T14:51:52+08:00">2019-04-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-04 14:32:39" itemprop="dateModified" datetime="2019-04-04T14:32:39+08:00">2019-04-04</time>
               
             
           </span>
@@ -427,18 +439,18 @@
         
           
             <h2 id="View是什么"><a href="#View是什么" class="headerlink" title="View是什么"></a>View是什么</h2><p>要学习自定义<code>View</code>，我们首先应该清楚的认识到<code>View</code>是个什么东西。那么View究竟是什么呢？</p>
-<p><img src="/2019/04/01/View简介/View子孙关系.png" alt><br><img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View子孙关系.png"></p>
+<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/7397627c40d5796580c38874f23ef3b5.png" alt></p>
 <ul>
 <li>从代码层面看，<code>View</code>是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图</li>
 <li>从用户角度看，<code>View</code>是用户界面的组成元素，<code>View</code>参与用户交互</li>
 </ul>
 <p>那么<code>View</code>究竟长什么样呢？见图-View界面边界</p>
-<img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View界面边界.png">
+<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/ccc604c940da54c280993351a24b918d.png" alt="View界面边界"></p>
 <p>从上图可以看出(开发者选项-&gt;打开布局边界)，界面上框出了很多<strong>大小不一的矩形框，我们可以把这里的每一个框都看作一个<code>View</code>或一个<code>View</code>子孙类</strong>，在Android Studio中打开布局管理器，也能看到类似于这种效果，如图-Android Studio View界面边界。</p>
-<img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View界面边界.png" class="Android Studio">
+<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/bf95ec8c40942a5880ed11bdeab45649.png" alt="Android Studio View界面边界"></p>
 <p>通过上面描述，我们可以清晰的认识到，<code>View</code>对应着界面上的一块矩形区域，在这块矩形区域内可以进行用户交互，那么这个矩形区域内部各种各样的颜色，Icon又是怎么显示出来的呢？</p>
 <h2 id="View生命周期"><a href="#View生命周期" class="headerlink" title="View生命周期"></a>View生命周期</h2><p>我们都知道<code>Android</code>中大多数控件具有生命周期敏感性，那么View有没有生命周期呢？答案是肯定的，<code>View</code>作为用户交互的重要组成元素，与<code>Activity</code>一样具有显式生命周期，只不过一般我们不去过分强调而已。</p>
-
+<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/1cd0e531407d4dc680f57e5a8f32ea0b.png" alt="View lifecycle"></p>
 <p>如图-View生命周期所示，其中描述了<code>View</code>的整个生命周期过程，其中我们需要关注r如下几点:</p>
 <ul>
 <li><code>invalidate()</code>的同作用函数<code>postInvalidate()</code>，两者均用于更新<code>View</code>内容，只不过<code>postInvalidate()</code>发生在单独的线程，<code>invalidate()</code>发生在主线程；</li>
@@ -447,12 +459,12 @@
 <li>上图中并没有绘制<code>View</code> 触屏事件相关的响应函数，会在随后的<code>View</code>事件处理部分进行详细描述; </li>
 </ul>
 <h2 id="View坐标系"><a href="#View坐标系" class="headerlink" title="View坐标系"></a>View坐标系</h2><p>不知道大家是否还记得我们学习绘制图形之前，最开始学习的是什么？相信大多数朋友都知道那就是坐标系，对于在<code>View</code>上绘制图形也是一样，首先需要要绘制图形在<code>View</code>内的位置，随后才能使用画笔进行绘制，那么<code>View</code>内部坐标系是怎样的呢？</p>
-<img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View坐标系.png">
+<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/36c38d47401a87b88034493b9ad1e09b.png" alt="View坐标系"></p>
 <p>如图-View坐标系所示，<code>View</code>内部的坐标原点位于<code>View</code>所在矩形的左上角，以屏幕水平右方向为X轴正向，以垂直向下方向为Y轴正向，那么我们经常使用的<code>View#getTop()</code>,<code>View#getLeft()</code>,<code>View#getBottom()</code>,<code>View#getRight()</code>等返回的又是哪里的距离呢？</p>
-<img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View函数值说明.png">
+<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/c498b0d640d2536e80fa8b9a8481557a.png" alt="View函数值说明"></p>
 <p>具体的函数值说明，如图-View函数值说明所示，大家自行参考。</p>
 <h2 id="View事件处理"><a href="#View事件处理" class="headerlink" title="View事件处理"></a>View事件处理</h2><p><code>View</code>作为参与用户交互的重要元素之一，响应用户操作必不可少，<code>View</code>内部的事件分发机制如图-View内部分发流程。</p>
-<img src="/2019/04/01/View简介/blog/2019/04/01/View简介/View_onTouch.png">
+<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/510d67ad405370f3805806a45eac50fc.png" alt="View_onTouch"></p>
 <p>从上图所示 ，在<code>View</code>内部事件分发过程中，事件起始于父控件调用<code>dispatchTouchEvent</code>,止于<code>onTouchListener</code>或者<code>onTouchEvent</code>返回true(true-事件被消耗，false-未消耗事件)，如果<code>onTouchListener</code>返回false或为空，事件会进一步传递到<code>onTouchEvent</code>处理，如果<code>onTouchEvent</code>返回false，事件会被扔回父控件处理，如果每级都按照上述流程返回false，则事件会被上传到操作系统抛弃掉。</p>
 <p>现有状况下我们一般有两种方式处理用户事件：</p>
 <ul>
