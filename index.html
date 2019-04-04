@@ -438,43 +438,23 @@
       
         
           
-            <h2 id="View是什么"><a href="#View是什么" class="headerlink" title="View是什么"></a>View是什么</h2><p>要学习自定义<code>View</code>，我们首先应该清楚的认识到<code>View</code>是个什么东西。那么View究竟是什么呢？</p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/7397627c40d5796580c38874f23ef3b5.png" alt></p>
-<ul>
-<li>从代码层面看，<code>View</code>是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图</li>
-<li>从用户角度看，<code>View</code>是用户界面的组成元素，<code>View</code>参与用户交互</li>
-</ul>
-<p>那么<code>View</code>究竟长什么样呢？见图-View界面边界</p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/ccc604c940da54c280993351a24b918d.png" alt="View界面边界"></p>
-<p>从上图可以看出(开发者选项-&gt;打开布局边界)，界面上框出了很多<strong>大小不一的矩形框，我们可以把这里的每一个框都看作一个<code>View</code>或一个<code>View</code>子孙类</strong>，在Android Studio中打开布局管理器，也能看到类似于这种效果，如图-Android Studio View界面边界。</p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/bf95ec8c40942a5880ed11bdeab45649.png" alt="Android Studio View界面边界"></p>
-<p>通过上面描述，我们可以清晰的认识到，<code>View</code>对应着界面上的一块矩形区域，在这块矩形区域内可以进行用户交互，那么这个矩形区域内部各种各样的颜色，Icon又是怎么显示出来的呢？</p>
-<h2 id="View生命周期"><a href="#View生命周期" class="headerlink" title="View生命周期"></a>View生命周期</h2><p>我们都知道<code>Android</code>中大多数控件具有生命周期敏感性，那么View有没有生命周期呢？答案是肯定的，<code>View</code>作为用户交互的重要组成元素，与<code>Activity</code>一样具有显式生命周期，只不过一般我们不去过分强调而已。</p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/1cd0e531407d4dc680f57e5a8f32ea0b.png" alt="View lifecycle"></p>
-<p>如图-View生命周期所示，其中描述了<code>View</code>的整个生命周期过程，其中我们需要关注r如下几点:</p>
-<ul>
-<li><code>invalidate()</code>的同作用函数<code>postInvalidate()</code>，两者均用于更新<code>View</code>内容，只不过<code>postInvalidate()</code>发生在单独的线程，<code>invalidate()</code>发生在主线程；</li>
-<li><code>View</code>整个生命周期中有四个重要函数，构造器从XML文件中解析<code>View</code>属性，<code>onMeasure()</code>测量<code>View</code>大小，测量过程与测量模式，<code>Padding</code>，<code>Margin</code>等有关， <code>onLayout()</code>完成<code>View</code>的位置布局,<code>onDraw()</code>完成<code>View</code>内容的绘制;</li>
-<li>如上图所示，如果需要<code>View</code>重新计算大小，则需要调用<code>requestLayout()</code>,启动<code>View</code>的深度优先遍历过程，重新构造<code>View</code>树，关于<code>View</code>树的相关信息，我们会在后续文章中描述;</li>
-<li>上图中并没有绘制<code>View</code> 触屏事件相关的响应函数，会在随后的<code>View</code>事件处理部分进行详细描述; </li>
-</ul>
-<h2 id="View坐标系"><a href="#View坐标系" class="headerlink" title="View坐标系"></a>View坐标系</h2><p>不知道大家是否还记得我们学习绘制图形之前，最开始学习的是什么？相信大多数朋友都知道那就是坐标系，对于在<code>View</code>上绘制图形也是一样，首先需要要绘制图形在<code>View</code>内的位置，随后才能使用画笔进行绘制，那么<code>View</code>内部坐标系是怎样的呢？</p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/36c38d47401a87b88034493b9ad1e09b.png" alt="View坐标系"></p>
-<p>如图-View坐标系所示，<code>View</code>内部的坐标原点位于<code>View</code>所在矩形的左上角，以屏幕水平右方向为X轴正向，以垂直向下方向为Y轴正向，那么我们经常使用的<code>View#getTop()</code>,<code>View#getLeft()</code>,<code>View#getBottom()</code>,<code>View#getRight()</code>等返回的又是哪里的距离呢？</p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/c498b0d640d2536e80fa8b9a8481557a.png" alt="View函数值说明"></p>
-<p>具体的函数值说明，如图-View函数值说明所示，大家自行参考。</p>
-<h2 id="View事件处理"><a href="#View事件处理" class="headerlink" title="View事件处理"></a>View事件处理</h2><p><code>View</code>作为参与用户交互的重要元素之一，响应用户操作必不可少，<code>View</code>内部的事件分发机制如图-View内部分发流程。</p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/04/510d67ad405370f3805806a45eac50fc.png" alt="View_onTouch"></p>
-<p>从上图所示 ，在<code>View</code>内部事件分发过程中，事件起始于父控件调用<code>dispatchTouchEvent</code>,止于<code>onTouchListener</code>或者<code>onTouchEvent</code>返回true(true-事件被消耗，false-未消耗事件)，如果<code>onTouchListener</code>返回false或为空，事件会进一步传递到<code>onTouchEvent</code>处理，如果<code>onTouchEvent</code>返回false，事件会被扔回父控件处理，如果每级都按照上述流程返回false，则事件会被上传到操作系统抛弃掉。</p>
-<p>现有状况下我们一般有两种方式处理用户事件：</p>
-<ul>
-<li>重写<code>View#onTouchEvent()</code></li>
-<li><code>View onTouchListener</code>接口</li>
-</ul>
-<p>那么这两种处理方式有什么区别呢？从下面源码中我们可以看出<code>onTouchListener</code>的优先与<code>onTouchEvent</code>，所以在重写<code>onTouchEvent</code>无效的情况下，除了check 父控件是否向下分发事件以外，还需要check该控件是否有<code>onTouchListener</code>的监听。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/** Android P 源码代码片段 **/</span><br><span class="line">public boolean dispatchTouchEvent(MotionEvent event) &#123;</span><br><span class="line">        ....</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (actionMasked == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">            // Defensive cleanup <span class="keyword">for</span> new gesture</span><br><span class="line">            stopNestedScroll();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (onFilterTouchEventForSecurity(event)) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp; handleScrollBarDragging(event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            //优先响应onTouchListener</span><br><span class="line">            ListenerInfo li = mListenerInfo;</span><br><span class="line">            <span class="keyword">if</span> (li != null &amp;&amp; li.mOnTouchListener != null</span><br><span class="line">                    &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED</span><br><span class="line">                    &amp;&amp; li.mOnTouchListener.onTouch(this, event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            //onTouchListener为空或者返回<span class="literal">false</span>时，响应onTouchEvent</span><br><span class="line">            <span class="keyword">if</span> (!result &amp;&amp; onTouchEvent(event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!result &amp;&amp; mInputEventConsistencyVerifier != null) &#123;</span><br><span class="line">            mInputEventConsistencyVerifier.onUnhandledEvent(event, 0);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Clean up after nested scrolls <span class="keyword">if</span> this is the end of a gesture;</span><br><span class="line">        // also cancel it <span class="keyword">if</span> we tried an ACTION_DOWN but we didn<span class="string">'t want the rest</span></span><br><span class="line"><span class="string">        // of the gesture.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        if (actionMasked == MotionEvent.ACTION_UP ||</span></span><br><span class="line"><span class="string">                actionMasked == MotionEvent.ACTION_CANCEL ||</span></span><br><span class="line"><span class="string">                (actionMasked == MotionEvent.ACTION_DOWN &amp;&amp; !result)) &#123;</span></span><br><span class="line"><span class="string">            stopNestedScroll();</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        return result;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
+            <p>
+              View是什么要学习自定义View，我们首先应该清楚的认识到View是个什么东西。那么View究竟是什么呢？
 
+
+从代码层面看，View是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图
+从用户角度看，View是用户
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/04/01/View简介/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -611,17 +591,19 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+            <p>
+              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/blog/2019/03/29/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
