@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[应用首页转场动画实现]]></title>
+    <url>%2Fblog%2F2019%2F04%2F26%2F%E5%BA%94%E7%94%A8%E9%A6%96%E9%A1%B5%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[Activity承担着展示产品信息，参与用户交互的重要职责，随着产品形态日益的精细化，我们经常需要对Activity进行修饰，以满足用户视觉感官，今天我们就来聊下比较常见的Activity切换时的动画效果，相信大多数朋友们都有处理过相关问题。 和Activity转场相关的动画在framework/res文件中声明如下： 下面我们将就上面这两种方式进行简单介绍(均实现页面从右侧进入左侧退出的动画效果，以Animation.Activity为例)。 动画资源文件123456789&lt;!-- activity_translate_exit.xml 页面从左侧退出动画--&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:duration=&quot;2000&quot;&gt; &lt;translate android:fromXDelta=&quot;0&quot; android:toXDelta=&quot;-100%&quot; &gt;&lt;/translate&gt;&lt;/set&gt; 123456789&lt;!-- activity_translate_enter.xml 应用从右侧滑入动画效果 --&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:duration=&quot;2000&quot;&gt; &lt;translate android:fromXDelta=&quot;100%&quot; android:toXDelta=&quot;0&quot; &gt;&lt;/translate&gt;&lt;/set&gt; 声明Animation.Activity Style并使用打开项目的style.xml文件，新建ActivityAnimation样式，并新增Theme主题使用该样式 123456&lt;style name=&quot;ActivityAnimation&quot; parent=&quot;@android:style/Animation.Activity&quot;&gt;&lt;item name=&quot;android:activityOpenEnterAnimation&quot;&gt;@anim/activity_translate_enter&lt;/item&gt;&lt;item name=&quot;android:activityOpenExitAnimation&quot;&gt;@anim/activity_translate_exit&lt;/item&gt;&lt;item name=&quot;android:activityCloseEnterAnimation&quot;&gt;@anim/activity_translate_enter&lt;/item&gt;&lt;item name=&quot;android:activityCloseExitAnimation&quot;&gt;@anim/activity_translate_exit&lt;/item&gt;&lt;/style&gt; 123&lt;style name=&quot;ActivityTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;&lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/TranslucentWindowAnimation&lt;/item&gt;&lt;/style&gt; 其中activityOpenEnterAnimation及activityOpenExitAnimation指定的是即将进入页面的进入及退出动画，activityCloseEnterAnimation及activityCloseExitAnimation指定的是当前即将关闭页面的动画效果，windowAnimationStyle这个属性将我们的自定义动画样式设置到系统。 最后修改MainActivity的theme为1android:theme=&quot;@style/ActivityTheme&quot; 运行效果如下：咦，居然完全没效果，这是为什么呢？明明在应用内部就是这么写的啊？这里大家要注意了，我们是从桌面进入的，前一个页面是launcher，不是我们自己的页面，那动画效果肯定设置不到哇，这时候就需要引入窗体半透明来实现了，我们修改ActivityTheme如下： 1234&lt;style name=&quot;TranslucentActivityTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;&lt;item name=&quot;android:windowIsTranslucent&quot;&gt;true&lt;/item&gt;&lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/TranslucentActivityAnimation&lt;/item&gt;&lt;/style&gt; 运行后查看效果 关于使用Animation.Translucent style指定WindowEnterAnimation和WindowExitAnimation的实现，请大家自行尝试查看效果(PS:运行机器为pixel2 9.0ROM)]]></content>
+      <categories>
+        <category>-Android</category>
+      </categories>
+      <tags>
+        <tag>-Activity -Animation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flutter Todo App(1)]]></title>
+    <url>%2Fblog%2F2019%2F04%2F19%2FFlutter-Todo-App-1%2F</url>
+    <content type="text"><![CDATA[Flutter todo app]]></content>
+      <categories>
+        <category>-Flutter</category>
+      </categories>
+      <tags>
+        <tag>-Flutter -async</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[View简介]]></title>
     <url>%2Fblog%2F2019%2F04%2F01%2FView%E7%AE%80%E4%BB%8B%2F</url>
     <content type="text"><![CDATA[View是什么要学习自定义View，我们首先应该清楚的认识到View是个什么东西。那么View究竟是什么呢？ 从代码层面看，View是一个类，是所有控件的直接或间接父类，详情见图-View子孙关系，图中只显示了部分View的子孙，有兴趣的朋友可以尝试自己去画下这幅图 从用户角度看，View是用户界面的组成元素，View参与用户交互 那么View究竟长什么样呢？见图-View界面边界 从上图可以看出(开发者选项-&gt;打开布局边界)，界面上框出了很多大小不一的矩形框，我们可以把这里的每一个框都看作一个View或一个View子孙类，在Android Studio中打开布局管理器，也能看到类似于这种效果，如图-Android Studio View界面边界。 通过上面描述，我们可以清晰的认识到，View对应着界面上的一块矩形区域，在这块矩形区域内可以进行用户交互，那么这个矩形区域内部各种各样的颜色，Icon又是怎么显示出来的呢？ View生命周期我们都知道Android中大多数控件具有生命周期敏感性，那么View有没有生命周期呢？答案是肯定的，View作为用户交互的重要组成元素，与Activity一样具有显式生命周期，只不过一般我们不去过分强调而已。 如图-View生命周期所示，其中描述了View的整个生命周期过程，其中我们需要关注r如下几点: invalidate()的同作用函数postInvalidate()，两者均用于更新View内容，只不过postInvalidate()发生在单独的线程，invalidate()发生在主线程； View整个生命周期中有四个重要函数，构造器从XML文件中解析View属性，onMeasure()测量View大小，测量过程与测量模式，Padding，Margin等有关， onLayout()完成View的位置布局,onDraw()完成View内容的绘制; 如上图所示，如果需要View重新计算大小，则需要调用requestLayout(),启动View的深度优先遍历过程，重新构造View树，关于View树的相关信息，我们会在后续文章中描述; 上图中并没有绘制View 触屏事件相关的响应函数，会在随后的View事件处理部分进行详细描述; View坐标系不知道大家是否还记得我们学习绘制图形之前，最开始学习的是什么？相信大多数朋友都知道那就是坐标系，对于在View上绘制图形也是一样，首先需要要绘制图形在View内的位置，随后才能使用画笔进行绘制，那么View内部坐标系是怎样的呢？ 如图-View坐标系所示，View内部的坐标原点位于View所在矩形的左上角，以屏幕水平右方向为X轴正向，以垂直向下方向为Y轴正向，那么我们经常使用的View#getTop(),View#getLeft(),View#getBottom(),View#getRight()等返回的又是哪里的距离呢？ 具体的函数值说明，如图-View函数值说明所示，大家自行参考。 View事件处理View作为参与用户交互的重要元素之一，响应用户操作必不可少，View内部的事件分发机制如图-View内部分发流程。 从上图所示 ，在View内部事件分发过程中，事件起始于父控件调用dispatchTouchEvent,止于onTouchListener或者onTouchEvent返回true(true-事件被消耗，false-未消耗事件)，如果onTouchListener返回false或为空，事件会进一步传递到onTouchEvent处理，如果onTouchEvent返回false，事件会被扔回父控件处理，如果每级都按照上述流程返回false，则事件会被上传到操作系统抛弃掉。 现有状况下我们一般有两种方式处理用户事件： 重写View#onTouchEvent() View onTouchListener接口 那么这两种处理方式有什么区别呢？从下面源码中我们可以看出onTouchListener的优先与onTouchEvent，所以在重写onTouchEvent无效的情况下，除了check 父控件是否向下分发事件以外，还需要check该控件是否有onTouchListener的监听。 123456789101112131415161718192021222324252627282930313233343536373839404142/** Android P 源码代码片段 **/public boolean dispatchTouchEvent(MotionEvent event) &#123; .... if (actionMasked == MotionEvent.ACTION_DOWN) &#123; // Defensive cleanup for new gesture stopNestedScroll(); &#125; if (onFilterTouchEventForSecurity(event)) &#123; if ((mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp; handleScrollBarDragging(event)) &#123; result = true; &#125; //优先响应onTouchListener ListenerInfo li = mListenerInfo; if (li != null &amp;&amp; li.mOnTouchListener != null &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp; li.mOnTouchListener.onTouch(this, event)) &#123; result = true; &#125; //onTouchListener为空或者返回false时，响应onTouchEvent if (!result &amp;&amp; onTouchEvent(event)) &#123; result = true; &#125; &#125; if (!result &amp;&amp; mInputEventConsistencyVerifier != null) &#123; mInputEventConsistencyVerifier.onUnhandledEvent(event, 0); &#125; // Clean up after nested scrolls if this is the end of a gesture; // also cancel it if we tried an ACTION_DOWN but we didn't want the rest // of the gesture. if (actionMasked == MotionEvent.ACTION_UP || actionMasked == MotionEvent.ACTION_CANCEL || (actionMasked == MotionEvent.ACTION_DOWN &amp;&amp; !result)) &#123; stopNestedScroll(); &#125; return result; &#125;]]></content>
+      <categories>
+        <category>-Android</category>
+      </categories>
+      <tags>
+        <tag>-View -TouchEvent</tag>
+      </tags>
   </entry>
 </search>
