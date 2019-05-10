@@ -96,23 +96,18 @@
 
 
 
-  <meta name="description" content="Activity承担着展示产品信息，参与用户交互的重要职责，随着产品形态日益的精细化，我们经常需要对Activity进行修饰，以满足用户视觉感官，今天我们就来聊下比较常见的Activity切换时的动画效果，相信大多数朋友们都有处理过相关问题。 和Activity转场相关的动画在framework/res文件中声明如下：  下面我们将就上面这两种方式进行简单介绍(均实现页面从右侧进入左侧退出的动画效">
+  <meta name="description" content="Activity作为Android系统中参与用户交互的重要组件，在日常开发过程中，我们经常需要定义Activity跳转动画以便为用户提供更好的体验，那么怎么设置Activity跳转动画呢？在Android系统源码中，预定义了三种相关的转场动画资源文件(文中描述的默认文件都位于AOSP/framework/base/core/res/anim目录下)：  Window窗体动画 主要属性说明如下表，均">
 <meta name="keywords" content="-Activity -Animation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="应用首页转场动画实现">
 <meta property="og:url" content="https://tuozhaobing.github.io/2019/04/26/应用首页转场动画实现/index.html">
 <meta property="og:site_name" content="养生佛系程序员">
-<meta property="og:description" content="Activity承担着展示产品信息，参与用户交互的重要职责，随着产品形态日益的精细化，我们经常需要对Activity进行修饰，以满足用户视觉感官，今天我们就来聊下比较常见的Activity切换时的动画效果，相信大多数朋友们都有处理过相关问题。 和Activity转场相关的动画在framework/res文件中声明如下：  下面我们将就上面这两种方式进行简单介绍(均实现页面从右侧进入左侧退出的动画效">
+<meta property="og:description" content="Activity作为Android系统中参与用户交互的重要组件，在日常开发过程中，我们经常需要定义Activity跳转动画以便为用户提供更好的体验，那么怎么设置Activity跳转动画呢？在Android系统源码中，预定义了三种相关的转场动画资源文件(文中描述的默认文件都位于AOSP/framework/base/core/res/anim目录下)：  Window窗体动画 主要属性说明如下表，均">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/7b6ae591401f152a8050f9c299e1034c.png">
-<meta property="og:image" content="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/6ae4da2a40847609808ca695450e430b.png">
-<meta property="og:image" content="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/bfcb05ee400acc8380277ebc26b01ad0.gif">
-<meta property="og:image" content="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/890cd52840569ed280dbbaf3f4260e1b.gif">
-<meta property="og:updated_time" content="2019-04-26T07:40:06.805Z">
+<meta property="og:updated_time" content="2019-05-10T06:51:57.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用首页转场动画实现">
-<meta name="twitter:description" content="Activity承担着展示产品信息，参与用户交互的重要职责，随着产品形态日益的精细化，我们经常需要对Activity进行修饰，以满足用户视觉感官，今天我们就来聊下比较常见的Activity切换时的动画效果，相信大多数朋友们都有处理过相关问题。 和Activity转场相关的动画在framework/res文件中声明如下：  下面我们将就上面这两种方式进行简单介绍(均实现页面从右侧进入左侧退出的动画效">
-<meta name="twitter:image" content="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/7b6ae591401f152a8050f9c299e1034c.png">
+<meta name="twitter:description" content="Activity作为Android系统中参与用户交互的重要组件，在日常开发过程中，我们经常需要定义Activity跳转动画以便为用户提供更好的体验，那么怎么设置Activity跳转动画呢？在Android系统源码中，预定义了三种相关的转场动画资源文件(文中描述的默认文件都位于AOSP/framework/base/core/res/anim目录下)：  Window窗体动画 主要属性说明如下表，均">
 
 
 
@@ -418,12 +413,24 @@
                 
               
 
-              <time title="创建时间：2019-04-26 15:21:50 / 修改时间：15:40:06" itemprop="dateCreated datePublished" datetime="2019-04-26T15:21:50+08:00">2019-04-26</time>
+              <time title="创建时间：2019-04-26 15:21:50" itemprop="dateCreated datePublished" datetime="2019-04-26T15:21:50+08:00">2019-04-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-10 14:51:57" itemprop="dateModified" datetime="2019-05-10T14:51:57+08:00">2019-05-10</time>
               
             
           </span>
@@ -475,21 +482,185 @@
       
 
       
-        <p>Activity承担着展示产品信息，参与用户交互的重要职责，随着产品形态日益的精细化，我们经常需要对Activity进行修饰，以满足用户视觉感官，今天我们就来聊下比较常见的Activity切换时的动画效果，相信大多数朋友们都有处理过相关问题。</p>
-<p>和Activity转场相关的动画在framework/res文件中声明如下：<br><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/7b6ae591401f152a8050f9c299e1034c.png" alt="enter image description here"></p>
-<p><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/6ae4da2a40847609808ca695450e430b.png" alt="enter image description here"></p>
-<p>下面我们将就上面这两种方式进行简单介绍(均实现页面从右侧进入左侧退出的动画效果，以Animation.Activity为例)。</p>
-<h3 id="动画资源文件"><a href="#动画资源文件" class="headerlink" title="动画资源文件"></a>动画资源文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- activity_translate_exit.xml 页面从左侧退出动画--&gt;</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">	android:duration=&quot;2000&quot;&gt;</span><br><span class="line">	&lt;translate</span><br><span class="line">			android:fromXDelta=&quot;0&quot;</span><br><span class="line">			android:toXDelta=&quot;-100%&quot;</span><br><span class="line">	&gt;&lt;/translate&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- activity_translate_enter.xml 应用从右侧滑入动画效果 --&gt;</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">	android:duration=&quot;2000&quot;&gt;</span><br><span class="line">	&lt;translate</span><br><span class="line">			android:fromXDelta=&quot;100%&quot;</span><br><span class="line">			android:toXDelta=&quot;0&quot;</span><br><span class="line">	&gt;&lt;/translate&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="声明Animation-Activity-Style并使用"><a href="#声明Animation-Activity-Style并使用" class="headerlink" title="声明Animation.Activity Style并使用"></a>声明Animation.Activity Style并使用</h3><p>打开项目的<code>style.xml</code>文件，新建ActivityAnimation样式，并新增Theme主题使用该样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;ActivityAnimation&quot; parent=&quot;@android:style/Animation.Activity&quot;&gt;</span><br><span class="line">&lt;item name=&quot;android:activityOpenEnterAnimation&quot;&gt;@anim/activity_translate_enter&lt;/item&gt;</span><br><span class="line">&lt;item name=&quot;android:activityOpenExitAnimation&quot;&gt;@anim/activity_translate_exit&lt;/item&gt;</span><br><span class="line">&lt;item name=&quot;android:activityCloseEnterAnimation&quot;&gt;@anim/activity_translate_enter&lt;/item&gt;</span><br><span class="line">&lt;item name=&quot;android:activityCloseExitAnimation&quot;&gt;@anim/activity_translate_exit&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;ActivityTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</span><br><span class="line">&lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/TranslucentWindowAnimation&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>其中<code>activityOpenEnterAnimation</code>及<code>activityOpenExitAnimation</code>指定的是即将进入页面的进入及退出动画，<code>activityCloseEnterAnimation</code>及<code>activityCloseExitAnimation</code>指定的是当前即将关闭页面的动画效果，<code>windowAnimationStyle</code>这个属性将我们的自定义动画样式设置到系统。</p>
-<p>最后修改MainActivity的theme为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:theme=&quot;@style/ActivityTheme&quot;</span><br></pre></td></tr></table></figure></p>
-<p>运行效果如下：<br><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/bfcb05ee400acc8380277ebc26b01ad0.gif" alt="enter image description here"><br>咦，居然完全没效果，这是为什么呢？明明在应用内部就是这么写的啊？这里大家要注意了，我们是从桌面进入的，前一个页面是<code>launcher</code>，不是我们自己的页面，那动画效果肯定设置不到哇，这时候就需要引入窗体半透明来实现了，我们修改<code>ActivityTheme</code>如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;TranslucentActivityTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</span><br><span class="line">&lt;item name=&quot;android:windowIsTranslucent&quot;&gt;true&lt;/item&gt;</span><br><span class="line">&lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/TranslucentActivityAnimation&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>运行后查看效果<br><img src="http://bmob-cdn-24652.b0.upaiyun.com/2019/04/26/890cd52840569ed280dbbaf3f4260e1b.gif" alt="enter image description here"></p>
-<p>关于使用<code>Animation.Translucent</code> style指定<code>WindowEnterAnimation</code>和<code>WindowExitAnimation</code>的实现，请大家自行尝试查看效果(PS:运行机器为pixel2 9.0ROM)</p>
+        <p>Activity作为Android系统中参与用户交互的重要组件，在日常开发过程中，我们经常需要定义Activity跳转动画以便为用户提供更好的体验，那么怎么设置Activity跳转动画呢？<br>在Android系统源码中，预定义了三种相关的转场动画资源文件(文中描述的默认文件都位于AOSP/framework/base/core/res/anim目录下)：</p>
+<ul>
+<li><p>Window窗体动画</p>
+<p>主要属性说明如下表，均可以通过自定义Theme中的windowAnimationStyle属性来覆写下表中的默认动画。用于指定单个页面打开或关闭动画可使用窗口动画定义，需要注意的是当页面的windowIsTranslucent值为true时，需要通过下面方式来指定窗体动画。</p>
+<style name="TranslucentActivityTheme" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/enter_from_left</item>
+        <item name="android:windowExitAnimation">@anim/out_from_left</item>
+</style>
+
+
+
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">动画属性名称</th>
+<th style="text-align:right">说明</th>
+<th style="text-align:center">默认动画文件</th>
+<th style="text-align:center">其他说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">android:windowEnterAnimation</td>
+<td style="text-align:right">添加窗体时的动画效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:windowExitAnimation</td>
+<td style="text-align:right">移除窗体时的动画效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:windowShowAnimation</td>
+<td style="text-align:right">显示窗体时的动画效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:windowHideAnimation</td>
+<td style="text-align:right">隐藏窗体时的动画效果</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>栈动画</p>
+<p>主要属性说明如下表，均可以通过自定义Theme中的windowAnimationStyle属性来覆写下表中的默认动画。 当我们需要在不同栈之间进行页面切换时，需要使用栈动画。使用过程中需要注意的是在A到B栈之间切换时，B的入动画声明在自己栈顶的第一个页面上，B的出厂动画取决于他的下一个栈中声明的<code>taskOpenExitAnimation</code>属性。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">动画属性名称</th>
+<th style="text-align:right">说明</th>
+<th style="text-align:center">默认动画文件</th>
+<th style="text-align:center">其他说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">android:taskOpenEnterAnimation</td>
+<td style="text-align:right">A栈最后一个页面启动B栈第一个页面，B栈第一个页面的入场动画</td>
+<td style="text-align:center">task_open_exit.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:taskOpenExitAnimation</td>
+<td style="text-align:right">A栈最后一个页面的出场动画</td>
+<td style="text-align:center">task_open_exit.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:taskCloseEnterAnimation</td>
+<td style="text-align:right">B栈退出时，下一个栈的入场动画</td>
+<td style="text-align:center">task_close_enter.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:taskCloseExitAnimation</td>
+<td style="text-align:right">B栈退出时，当前页面的退场动画</td>
+<td style="text-align:center">task_close_exit.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:taskToFrontEnterAnimation</td>
+<td style="text-align:right">一个已有栈切换到前台时，该栈的动画效果</td>
+<td style="text-align:center">task_open_exit.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:taskToFrontExitAnimation</td>
+<td style="text-align:right">一个已有栈切换到前台时，当前前台栈的动画效果</td>
+<td style="text-align:center">task_open_exit.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:taskToBackEnterAnimation</td>
+<td style="text-align:right">进入后台时，切换到前台栈的入场动画效果</td>
+<td style="text-align:center">task_close_enter.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:taskToBackExitAnimation</td>
+<td style="text-align:right">进入到后台时，当前在前台即将进入后台的动画效果</td>
+<td style="text-align:center">task_close_exit.xml</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Activity动画</p>
+<p>主要属性说明如下表，均可以通过自定义Theme中的windowAnimationStyle属性来覆写下表中的默认动画。当我们需要在同一栈内的Activty之间进行页面切换时，需要使用Activity动画。使用过程中需要注意的是在A到B Activity之间切换时，B的入场动画声明在自己Style文件中，B的出厂动画取决于他的下一个Activity中声明的activityOpenExitAnimation属性。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">动画属性名称</th>
+<th style="text-align:right">说明</th>
+<th style="text-align:center">默认动画文件</th>
+<th style="text-align:center">其他说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">android:activityOpenEnterAnimation</td>
+<td style="text-align:right">A-B时，B activity的入场动画</td>
+<td style="text-align:center">activity_open_enter.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:activityOpenExitAnimation</td>
+<td style="text-align:right">A Activity的出厂动画</td>
+<td style="text-align:center">activivty_open_exit.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:activityCloseEnterAnimation</td>
+<td style="text-align:right">B-C时，C activity的入场动画</td>
+<td style="text-align:center">activivty_close_enter.xml</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">android:activityCloseExitAnimation</td>
+<td style="text-align:right">B Activity的出场动画</td>
+<td style="text-align:center">activivty_close_exit.xml</td>
+</tr>
+</tbody>
+</table>
+<p>如果日常开发过程中我们需要指定各页面的转场动画，只需要新建Theme，覆写上面描述的动画资源attr即可。</p>
+<p>比如我们要定制SettingsActivity的转场动画，我们只需要这样编写代码：</p>
+<p>1.定义Settings Theme，覆写<code>windowAnimationStyle</code>属性</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"SettingsActivityTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowAnimationStyle"</span>&gt;</span>@style/SettingsWindowAnimationStyle<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.定义<code>windowAnimationStyle</code>属性引用的style</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"SettingsWindowAnimationStyle"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Animation.Activity"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- A-B时，启动新页面 --&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 即将打开的activity的进入动画 B的入场动画--&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityOpenEnterAnimation"</span>&gt;</span>@anim/enter_from_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 当前Activity的退场动画 A的出厂动画--&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityOpenExitAnimation"</span>&gt;</span>@anim/out_from_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- B-C时，返回 --&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 下一个activity的进入动画 C的入场动画--&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityCloseEnterAnimation"</span>&gt;</span>@anim/enter_from_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 当前Activity的推出动画 B的出场动画--&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:activityCloseExitAnimation"</span>&gt;</span>@anim/out_from_right<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里需要注意的是在</p>
+<ul>
+<li>Activity和栈动画，parent需是<code>@android:style/Animation.Activity</code></li>
+<li>Window窗体动画属性，parent一般不写，当<code>windowIsTranslucent</code>为true时，其parent需是<code>@android:style/Animation.Translucent</code></li>
+</ul>
+<p>3.在<code>AndroidManifest.xml</code>文件中引用第一步中定义的<code>Theme</code>即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span>  </span></span><br><span class="line"><span class="tag">   <span class="attr">android:name</span>=<span class="string">".SettingsActivity"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">android:theme</span>=<span class="string">"@style/SettingsActivityTheme"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="特殊情况说明"><a href="#特殊情况说明" class="headerlink" title="特殊情况说明"></a>特殊情况说明</h3><ul>
+<li><p>同栈内A-&gt;B-&gt;C跳转时，B的入场动画及A的退场动画由B的style文件指定，C的入场动画以及B的出厂动画由C的style文件指定，以此类推</p>
+</li>
+<li><p>A页面到B页面，B页面的启动模式为SingleInstance，此时需要使用栈动画来指定A到B的跳转动画</p>
+</li>
+<li><p>桌面到应用启动页，此时需要用栈动画，但是由于没办法在修改launcher应用代码，会使得入场动画有效，但是启动页退场动画无效，此时可以通过下述代码强制指定退出动画</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">finish</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.finish()</span><br><span class="line">    overridePendingTransition(<span class="number">0</span>,R.anim.out_from_left)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然在桌面到应用启动页这种情形下也可以使用Window窗体动画来指定动画效果，但会产生黑屏问题，此时我们可以通过设置windowIsTranslucent属性为true的方式来解决，具体代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MainActivityTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowAnimationStyle"</span>&gt;</span>@style/TranslucentWindow<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"TranslucentWindow"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Animation.Translucent"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterAnimation"</span>&gt;</span>@anim/enter_from_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitAnimation"</span>&gt;</span>@anim/out_from_left<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此时同样需要在代码中指定退出动画：</p>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">finish</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.finish()</span><br><span class="line">    overridePendingTransition(<span class="number">0</span>,R.anim.out_from_left)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>Activity切换动画无效[<a href="https://blog.csdn.net/wjr1949/article/details/72643798]" target="_blank" rel="noopener">https://blog.csdn.net/wjr1949/article/details/72643798]</a></p>
 
       
     </div>
@@ -698,7 +869,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#动画资源文件"><span class="nav-number">1.</span> <span class="nav-text">动画资源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明Animation-Activity-Style并使用"><span class="nav-number">2.</span> <span class="nav-text">声明Animation.Activity Style并使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊情况说明"><span class="nav-number">1.</span> <span class="nav-text">特殊情况说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
